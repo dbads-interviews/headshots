@@ -1,0 +1,33 @@
+{
+  "name": "headshots",
+  "version": "1.0.0",
+  "description": "generate headshots",
+  "main": "index.ts",
+  "author": "dbadss",
+  "license": "MIT",
+  "scripts": {
+    "build": "npx tsc && cp .env ./dist/.env",
+    "startServer": "rm -rf dist && yarn build && node ./dist/index.js",
+    "start": "nodemon"
+  },
+  "dependencies": {
+    "@types/archiver": "^6.0.2",
+    "@types/express": "^4.17.21",
+    "@types/multer": "^1.4.11",
+    "@types/node": "^20.12.6",
+    "archiver": "^7.0.1",
+    "axios": "^1.6.8",
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.0",
+    "typescript": "^5.4.4"
+  },
+  "nodemonConfig": {
+    "verbose": true,
+    "watch": [
+      "src"
+    ],
+    "ext": "ts,js,json",
+    "exec": "yarn startServer"
+  }
+}
